@@ -1,8 +1,9 @@
+
 import java.util.Random;
 
 /**
- * Mimic the data input ability of a physical phone's keypad;
- * however, here we're just sending it fake digits.
+ * Simula a entrada de dados de um teclado de telefone,
+ * enviando dígitos para o modelo.
  */
 public class KeyPad {
     private final PhoneModel model;
@@ -12,13 +13,11 @@ public class KeyPad {
     }
 
     public void simulateKeyPresses(int numKeyPresses) {
-        final int MAX_DIGIT = 12;
+        final int MAX_DIGIT = 10; // Dígitos válidos são 0-9
         Random rnd = new Random();
         for (int i = 0; i < numKeyPresses; i++) {
             int newDigit = rnd.nextInt(MAX_DIGIT);
-            System.out.println("Pressing: " + newDigit);
             model.addDigit(newDigit);
         }
     }
-
 }
